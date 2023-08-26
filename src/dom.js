@@ -5,6 +5,8 @@ import cloudyBackground from "./assets/cloudy.jpg";
 import stormyBackground from "./assets/stormy.jpg";
 import nightBackground from "./assets/night.jpg";
 import defaultBackground from "./assets/default.jpg";
+let pref = "c";
+let current = "";
 async function updateDom(fetchedData) {
   const error = document.querySelector("#error");
   const loading = document.querySelector("#modal");
@@ -56,8 +58,13 @@ function realtimeDOM(processedData) {
   const feelstemp = document.querySelector(".feels");
   const icon = document.querySelector(".icon");
   icon.src = "https:" + processedData.realTime.condition.icon;
-  temp.textContent = processedData.realTime.tempC + " °C";
-  feelstemp.textContent = processedData.realTime.feelsC + " °C";
+  if (pref === "c") {
+    temp.textContent = processedData.realTime.tempC + " °C";
+    feelstemp.textContent = processedData.realTime.feelsC + " °C";
+  } else {
+    temp.textContent = processedData.realTime.tempF + " °f";
+    feelstemp.textContent = processedData.realTime.feelsF + " °f";
+  }
   const humidity = document.querySelector(".humid");
   humidity.textContent = processedData.realTime.humidity + "%";
   const rain = document.querySelector(".rain");
@@ -80,7 +87,11 @@ function forecastDOM(fetchedData) {
     forecastConditionIcon.src = "https:" + day.day.condition.icon;
     const forecastTemp = document.createElement("h1");
     forecastTemp.classList.add("forecasttemp");
-    forecastTemp.textContent = day.day.avgtemp_c + "°C";
+    if (pref === "c") {
+      forecastTemp.textContent = day.day.avgtemp_c + "°C";
+    } else {
+      forecastTemp.textContent = day.day.avgtemp_f + "°F";
+    }
     const forecastRain = document.createElement("h3");
     forecastRain.textContent =
       "Rain chance: " + day.day.daily_chance_of_rain + "%";
@@ -98,8 +109,18 @@ function clickHandler() {
     if (e.key === "Enter") {
       let data = getWeather(search.value);
       search.value = "";
+      current = data;
       updateDom(data);
     }
+  });
+  const tempbutton = document.querySelector(".tempbutton");
+  tempbutton.addEventListener("click", () => {
+    if (pref === "f") {
+      pref = "c";
+    } else {
+      pref = "f";
+    }
+    updateDom(current);
   });
 }
 function changeBackground(status) {
@@ -122,7 +143,8 @@ function changeBackground(status) {
   }
 }
 function screenHandler() {
-  updateDom(getWeather());
+  current = getWeather();
+  updateDom(current);
   clickHandler();
 }
 export { screenHandler };
