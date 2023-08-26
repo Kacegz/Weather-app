@@ -5,7 +5,6 @@ import cloudyBackground from "./assets/cloudy.jpg";
 import stormyBackground from "./assets/stormy.jpg";
 import nightBackground from "./assets/night.jpg";
 import defaultBackground from "./assets/default.jpg";
-let choice = "c";
 async function updateDom(fetchedData) {
   const error = document.querySelector("#error");
   const loading = document.querySelector("#modal");
@@ -20,7 +19,6 @@ async function updateDom(fetchedData) {
       modal.close();
     })
     .catch((err) => {
-      console.log(err);
       error.textContent = "Something went wrong, try again";
       loading.close();
     });
