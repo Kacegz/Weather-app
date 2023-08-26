@@ -1,7 +1,7 @@
 :root{
     color: white;
 }
-html,body,p,h1,h2,h3,h4{
+html,body,p,h1,h2,h3,h4,h5{
     margin:0;
 }
 #container{
@@ -9,8 +9,9 @@ html,body,p,h1,h2,h3,h4{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 8fr 3fr;
-    background-image: url(sunny.jpg);
+    background: url(assets/default.jpg) no-repeat center center;
     background-size: cover;
+
 }
 #left{
     display: flex;
@@ -38,16 +39,18 @@ html,body,p,h1,h2,h3,h4{
     border-radius: 40px;
     font-size: 1.5rem;
     padding: 10px;
-    background-color: rgba(96, 150, 180, 0.6);
-    border: 4px solid rgba(70, 109, 129, 1);
-    box-shadow: 0px 0px 8px 2px rgb(70, 109, 129);
+    background-color: rgba(0, 0, 0, 0.6);
+    border:none;
+    box-shadow: 0px 0px 8px 2px rgb(50, 50, 50);
     text-align: center;
     color: white;
 }
 .search:focus{
-    border:4px solid rgb(54, 85, 100);
-    box-shadow: 0px 0px 8px 2px rgb(54, 85, 100);
+    box-shadow: 0px 0px 8px 2px rgb(0, 0, 0);
     outline: none;
+}
+.search::placeholder{
+    color:white;
 }
 #error{
     color: red;
@@ -62,12 +65,15 @@ html,body,p,h1,h2,h3,h4{
 .day{
     background-color: rgba(0,0,0, 0.6);
     box-shadow: 0px 0px 8px 2px rgb(0, 0, 0);
-    width: 25vw;
+    flex: auto;
     height: 25vh;
+    max-width: 25vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 20px;
+    gap:5px;
 }
 #data,#additional{
     font-size: 1.4rem;
@@ -77,6 +83,7 @@ html,body,p,h1,h2,h3,h4{
     height: 50vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap:20px;
     width: 15vw;
 }
@@ -88,16 +95,32 @@ html,body,p,h1,h2,h3,h4{
     display: flex;
     align-items: center;
 }
-.tempbutton{
-    background-color: mediumseagreen;
-    border-radius: 40px;
-    width: 50px;
-    padding: 5px;
-    text-align: center;
-    align-self: center;
+#modal{
     border: none;
+    background-color: transparent;
+    overflow: hidden;
 }
-.tempbutton:hover{
-    transform: scale(1.2);
-    cursor: pointer;
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
 }
+dialog:focus{
+    outline:none;
+}
+
+.rotate{
+    width: 100px;
+    height: 100px;
+    animation: spin 8s infinite linear;
+}
+
+@keyframes spin{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+  
