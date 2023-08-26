@@ -62,8 +62,8 @@ function realtimeDOM(processedData) {
     temp.textContent = processedData.realTime.tempC + " °C";
     feelstemp.textContent = processedData.realTime.feelsC + " °C";
   } else {
-    temp.textContent = processedData.realTime.tempF + " °f";
-    feelstemp.textContent = processedData.realTime.feelsF + " °f";
+    temp.textContent = processedData.realTime.tempF + " °F";
+    feelstemp.textContent = processedData.realTime.feelsF + " °F";
   }
   const humidity = document.querySelector(".humid");
   humidity.textContent = processedData.realTime.humidity + "%";
