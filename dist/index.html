@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather app</title>
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div id="container">
+        <dialog id="modal">
+            <img class="rotate" width="100" height="100" src="https://www.svgrepo.com/show/407540/sun.svg"/>
+        </dialog>
+        <div id="left">
+            <div id="data">
+                <h1 class="location">Krakow,</h1>
+                <h2 class="country">PL</h2>
+                <h4 class="date">Friday, 26rd aug 2023</h4>
+                <h4 class="time">9:30am</h4>
+                <div class="flex">
+                    <h2 class="condition">Partly Cloudy</h2>
+                    <img src="#" alt="icon" class="icon">
+                </div>
+                <h1 class="temp">30C</h1>
+            </div>
+        </div>
+        <div id="mid">
+            <input type="text" name="" class="search" placeholder="Search..." >
+            <h1 id="error"></h1>
+        </div>
+        <div id="right">
+            <div id="additional">
+                <div class="tempbutton">°C</div>
+                <div class="other" id="feelstemp">
+                    <h4>Feels like:</h4>
+                    <h3 class="feels">??</h3>
+                </div>
+                <div class="other" id="humidity">
+                    <h4>Humidity:</h4>
+                    <h3 class="humid">??%</h3>
+                </div>
+                <div class="other" id="chance">
+                    <h4>Chance of rain:</h4>
+                    <h3 class="rain">??%</h3>
+                </div>
+                <div class="other" id="wind">
+                    <h4>Wind speed:</h4>
+                    <h3 class="speed">??km/h</h3>
+                </div>
+                <div class="other" id="pressure">
+                    <h4>Pressure:</h4>
+                    <h3 class="pressure">?? hPa</h3>
+                </div>
+            </div>
+        </div>
+        <div id="bottom">
+        </div>
+    </div>
+</body>
+</html>
