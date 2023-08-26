@@ -107,7 +107,19 @@ dialog::backdrop {
 dialog:focus{
     outline:none;
 }
-
+.tempbutton{
+    background-color: mediumseagreen;
+    border-radius: 40px;
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    align-self: center;
+    border: none;
+}
+.tempbutton:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
 .rotate{
     width: 100px;
     height: 100px;
