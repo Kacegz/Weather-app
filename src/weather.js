@@ -29,7 +29,6 @@ async function getWeather(location) {
     locationData.city = fetchedData.location.name;
     const forecastData = fetchedData.forecast.forecastday.slice(1);
     const allData = { locationData, realTime, forecastData };
-    console.log(allData);
     return allData;
   } catch (err) {
     return err;
