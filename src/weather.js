@@ -1,6 +1,6 @@
 async function fetchData(location = "auto:ip") {
   const response = await fetch(
-    `https://api.weatherapi.com/v1/forecast.json?key=d0b0025ecfef4ae9ac585949231808&q=${location}&days=4`,
+    `https://api.weatherapi.com/v1/forecast.json?key=${process.env.key}&q=${location}&days=4`,
   );
   if (response.status === 200) {
     const currentWeather = await response.json();
